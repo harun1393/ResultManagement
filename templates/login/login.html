@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign In</title>
+    {% load staticfiles %}
+
+   <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"/>
+   <link rel="stylesheet" href="{% static 'css/login.css' %}"/>
+
+</head>
+<body>
+
+
+      <form class="jumbotron" style="margin-top:80px" role="form" method="post" action="{% url 'login' %}">{% csrf_token %}
+    <div class="login-form">
+	<div class="form-group">
+			{% if messages %}
+            {% for message in messages %}
+              <p class="success"> {{ message }}</p>
+            {% endfor %}
+          {% endif %}
+
+		</div>
+     <h1>DIIT Results</h1>
+     <div class="form-group ">
+       <input type="email" class="form-control" placeholder="Email " required name="email" >
+       <i class="fa fa-envelope"></i>
+     </div>
+     <div class="form-group">
+       <input type="password" class="form-control" required placeholder="Password" name="password">
+       <i class="fa fa-lock"></i>
+     </div>
+	  <div class="form-group">
+      <p class="alert">
+			{% if error %}
+               [*]{{ error }}
+            {% endif %}
+			 {% if erroremail %}
+                     [*]{{ erroremail }}
+             {% endif %}
+			  {% if errorpass %}
+                     [*]{{ errorpass }}
+            {% endif %}
+
+		</p>
+		</div>
+     <!-- <a class="link" href="#">Lost your password?</a>-->
+     <button type="submit" class="log-btn" ><i class="fa fa-sign-in"></i> Login</button>
+<div>
+     </form>
+
+
+</body>
+</html>

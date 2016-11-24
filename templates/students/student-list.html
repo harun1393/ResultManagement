@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block extrahead %}
+    <link href="{% static 'css/jquery.dataTables.min.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
+{% block maincontent %}
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                All Student List
+                {% if user.is_superuser %}
+                    <a class="btn btn-primary pull-right" href="{% url 'add-result' %}">Add New Student</a>
+                {% endif %}
+            </div>
+            <div class="panel-body">
+                <div class="table-default table-responsive">
+                    {% if students %}
+                    <table class="table" id="myTable">
+                        <thead>
+                            <tr>
+
+                                <th>Student Id</th>
+                                <th>Student Name</th>
+                                <th>Batch</th>
+                                <th>Department</th>
+                                <th>Section</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for std in students %}
+                            <tr>
+
+                                <td>{{ std.student_id }}</td>
+                                <td>{{ std.name }}</td>
+                                <td>{{ std.batch }}</td>
+                                <td>{{ std.department }}</td>
+                                <td>{{ std.section }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                    <p>No Student found</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block extrajs %}
+    <script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
+    <script>
+        $(document).ready(function(){
+    $('#myTable').DataTable();
+});
+    </script>
+{% endblock %}

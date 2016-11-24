@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block extrahead %}
+    <link href="{% static 'css/jquery.dataTables.min.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
+{% block maincontent %}
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                All Subjects
+            </div>
+            <div class="panel-body">
+                <div class="table-default table-responsive">
+                    {% if subjects %}
+                    <table class="table" id="myTable">
+                        <thead>
+                            <tr>
+
+                                <th>Sl.</th>
+                                <th>Semester</th>
+                                <th>Subject Code</th>
+                                <th>Subject Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for sub in subjects %}
+                            <tr>
+
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ sub.semester }}</td>
+                                <td>{{ sub.subject_code }}</td>
+                                <td>{{ sub.subject_name }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                    <p>No Student found</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block extrajs %}
+    <script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
+    <script>
+        $(document).ready(function(){
+    $('#myTable').DataTable();
+});
+    </script>
+{% endblock %}

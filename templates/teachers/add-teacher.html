@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block maincontent %}
+<div class="row">
+    <div class="col-md-7 col-md-offset-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            {% if errMsg %}
+                <p class="text-danger">{{ errMsg }}</p>
+            {% endif %}
+        </div>
+        <div class="panel-body">
+            <form action="{% url 'add-teacher' %}" method="post">{% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Submit" class="btn btn-primary col-md-offset-5">
+            </form>
+
+        </div>
+    </div>
+</div>
+    </div>
+{% endblock %}

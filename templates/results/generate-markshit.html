@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+
+
+{% block maincontent %}
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                All Exams
+            </div>
+            <div class="panel-body">
+                <div class="table-default table-responsive">
+                    {% if result %}
+                    <table class="table" id="myTable">
+                        <thead>
+                            <tr>
+
+                                <th>Student ID</th>
+                                {% for subject in subjects %}
+                                <th>{{ subject.subject_code }}</th>
+                                {% endfor %}
+                                <th>GPA</th>
+                                <th>Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for result in result %}
+                            <tr>
+
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ result.exam_code }}</td>
+                                <td>{{ exam.exam_name }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                    <p>No Exam found</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

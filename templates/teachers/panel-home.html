@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+{% block maincontent %}
+
+
+<div class="col-md-2">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a href="{% url 'all-subjects' %}">All Subjects</a>
+        </div>
+        <div class="panel-body">
+            <a href="{% url 'all-subjects' %}" class="left-mar"> <i class="fa fa-book fa-5x blue "></i></a>
+        </div>
+    </div>
+
+</div>
+<div class="col-md-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a href="{% url 'teachers-list' %}" >Teachers</a>
+        </div>
+        <div class="panel-body">
+            <a href="{% url 'teachers-list' %}" class="left-mar"> <i class="fa fa-user fa-5x blue"></i></a>
+        </div>
+    </div>
+</div>
+    <div class="col-md-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a href="#">Classes</a>
+        </div>
+        <div class="panel-body">
+            <a href="{% url 'classes' %}" class="left-mar"> <i class="fa fa-list-alt fa-5x blue"></i></a>
+        </div>
+    </div>
+</div>
+    <div class="col-md-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a href="#">All Students</a>
+        </div>
+        <div class="panel-body">
+            <a href="{% url 'students-list' %}" class="left-mar"> <i class="fa fa-graduation-cap fa-5x blue"></i></a>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a href="#">My Subjects</a>
+        </div>
+        <div class="panel-body">
+            <a href="{% url 'my-subjects' %}" class="left-mar"> <i class="fa fa-comments fa-5x blue"></i></a>
+        </div>
+    </div>
+</div>
+<div class="col-md-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a href="#">Add result</a>
+        </div>
+        <div class="panel-body">
+            <a href="{% url 'add-result' %}" class="left-mar"> <i class="fa fa-file-o fa-5x blue"></i></a>
+        </div>
+    </div>
+</div>
+<div class="col-md-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a href="#">Performance</a>
+        </div>
+        <div class="panel-body">
+            <a href="#" class="left-mar"> <i class="fa fa-bar-chart fa-5x blue"></i></a>
+        </div>
+    </div>
+</div>
+
+<!------- Super user option, only superuser can see this option -------->
+{% if user.is_superuser %}
+<div class="col-md-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a href="#">Add New Exam</a>
+        </div>
+        <div class="panel-body">
+            <a href="#" class="left-mar"> <i class="fa fa-plus-square-o fa-5x blue"></i></a>
+        </div>
+    </div>
+</div>
+<div class="col-md-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a href="{% url 'add-teacher' %}" >Add Teacher</a>
+        </div>
+        <div class="panel-body">
+            <a href="{% url 'add-teacher' %}" class="left-mar"> <i class="fa fa-user fa-5x blue"></i></a>
+        </div>
+    </div>
+</div>
+<div class="col-md-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a href="{% url 'add-students' %}">Add Student</a>
+        </div>
+        <div class="panel-body">
+            <a href="{% url 'add-students' %}" class="left-mar"> <i class="fa fa-users fa-5x blue"></i></a>
+        </div>
+    </div>
+</div>
+<div class="col-md-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a href="#">Generate Result</a>
+        </div>
+        <div class="panel-body">
+            <a href="#" class="left-mar"> <i class="fa fa-users fa-5x blue"></i></a>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+
+{% endblock %}

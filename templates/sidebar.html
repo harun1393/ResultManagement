@@ -1,0 +1,51 @@
+<div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+          <!-------------------- Admin ---------------->
+                        <li>
+                            <a href="{% url 'admin-panel' %}"><i class="fa fa-users fa-fw"></i> Home<span class="fa arrow"></span></a>
+
+                        </li>
+             <!-----------Students menu ------------>
+                        <li>
+                            <a href="#"><i class="fa fa-cutlery fa-fw"></i>Students<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="#"> Add New student</a></li>
+                                <li><a href="{% url 'students-list' %}"> All Students</a></li>
+                            </ul>
+
+                        </li>
+
+            <!-----------Students menu ------------>
+                        <li>
+                            <a href="#"><i class="fa fa-cutlery fa-fw"></i>Class Management<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="#"> Add New Class</a></li>
+                                <li><a href="{% url 'classes' %}"> All Classes</a></li>
+                            </ul>
+
+                        </li>
+
+            <!--------------- Subjects ---------------->
+                        <li>
+                            <a href="#"><i class="fa fa-align-justify fa-fw"></i>Subjects<span class="fa arrow"></span></a>
+
+                        </li>
+                 <!--------------- Results ---------------->
+                            <li>
+                                <a href="#"><i class="fa fa-laptop fa-fw"></i>Results<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                <li><a href="{% url 'add-result' %}"> Add New Result</a></li>
+
+                            </ul>
+
+                            </li>
+
+
+                    </ul>
+
+                </div>
+
+                <!-- /.sidebar-collapse -->
+                      <p class="text-success devel">Developed By <a href="http://nutboltu.net">Harun Or Rashid</a></p>
+            </div>

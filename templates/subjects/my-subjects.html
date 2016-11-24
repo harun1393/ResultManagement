@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block maincontent %}
+<div class="panel panel-default">
+        <div class="panel-heading">
+            Your subjects
+
+        </div>
+        <div class="panel-body">
+            <div class="table-default table-responsive">
+                {% if subjects %}
+                <table class="table">
+                    <thead>
+                        <tr>
+
+                            <th>Subject Code</th>
+                            <th>Subject Name</th>
+                            <th>Batch</th>
+                            <th>Semester</th>
+                            <th>Section</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for sub in subjects %}
+                        <tr>
+
+                            <td>{{ sub.subject }}</td>
+                            <td>{{ sub.subject.subject_name }}</td>
+                            <td>{{ sub.batch }}</td>
+                            <td>{{ sub.semester }}</td>
+                            <td>{{ sub.section }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <p>subjects not found</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

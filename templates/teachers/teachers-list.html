@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block extrahead %}
+    <link href="{% static 'css/jquery.dataTables.min.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block maincontent %}
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                All Teachers List
+                {% if user.is_superuser %}
+                    <a class="btn btn-primary pull-right" href="{% url 'add-result' %}">Add New Teacher</a>
+                {% endif %}
+            </div>
+            <div class="panel-body">
+                <div class="table-default table-responsive">
+                    {% if teachers %}
+                    <table class="table" id="myTable">
+                        <thead>
+                            <tr>
+                                <th>Teacher Name</th>
+                                <th>Teacher Code</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for tcr in teachers %}
+                            <tr>
+
+                                <td>{{ tcr.teacher_name }}</td>
+                                <td>{{ tcr.teacher_code }}</td>
+                                <td>{{ tcr.email }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                    <p>No Student found</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block extrajs %}
+    <script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
+    <script>
+        $(document).ready(function(){
+    $('#myTable').DataTable();
+});
+    </script>
+{% endblock %}
